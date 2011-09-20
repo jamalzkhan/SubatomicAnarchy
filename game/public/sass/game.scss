@@ -1,0 +1,384 @@
+@import "mixins.scss";
+@import "compass/reset";
+
+body{
+  @include body_setup;
+  
+  font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  
+  padding: 5px 10px;
+  
+}
+
+
+#shop{
+
+  #response{
+    position: relative;
+    top: 200px;
+  }
+
+  #feedback { font-size: 1.4em; }
+
+  span{
+    float: right;
+  }
+
+  ol{
+    list-style-type: none; margin: 0; padding: 0; width: 100%;
+
+    .ui-selecting { background: #FECA40; }
+    .ui-selected { background: #F39814; color: white; }
+
+    li { 
+      margin: 3px; 
+      padding: 0.4em; 
+      font-size: 1em; 
+      height: 18px; 
+    }
+
+  }
+  
+
+}
+
+  
+#trade{
+  margin: 0 auto;
+  
+  div{
+    @include border-radius(8px);
+  }
+  
+  h3{
+    padding: 20px 0;
+    font-size:15px;
+  }
+  
+  h2{
+    font-size:28px;
+    padding: 5px 0;
+  }
+
+  
+  div.box{
+    width: 270px;
+    height: 90%;
+    border: 1px solid #AAA;
+    float: left;
+    padding: 5px 15px;
+    margin: 10px;
+    
+    div:first-child{
+      padding-bottom: 15px;
+      border-bottom: 1px solid #AAA;
+      @include border-radius(0px);
+    }
+    
+  }
+  
+  #left_images{
+    #top_planet{
+      img{
+        float:left;
+        padding-right: 10px;
+      }
+      p{
+        padding-bottom: 15px;
+      }
+      li{
+        padding: 5px 0;
+      }
+    }
+  }
+  
+  #left_images, #middle_trade{
+    > div{
+      width: 90%;
+      height: 200px;
+      margin: 10px;
+      
+      img{
+        display: block;
+        margin: 0 auto;
+        vertical-align: middle;
+      }
+    }
+  }
+  
+  #middle_trade{
+    ol{
+      margin-left: 10px;
+    }
+    
+    li{
+      width:80px;
+      height: 40px;
+      
+      p{
+        position: relative;
+        top: 30%;
+      }
+    }
+  }
+  
+  #right_trade{
+    ul{
+      margin: 0 15px;
+      
+      li{
+        padding: 7px 0;
+      }
+    }
+    #info_box{
+      padding: 50px 0;
+    }
+    
+  }
+  
+}
+
+#messages{
+  font: helvetica;
+  
+  margin: 0 auto;
+
+
+  div.box{
+    height: 470px;
+    float: left;
+    //padding: 5px 10px;
+    margin: 0px;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 1px;
+  }
+  
+  #left_inbox{
+    width: 270px;
+    border-right-style: none;
+    overflow: auto;  
+    
+    li {
+      padding: 25px, 25px;
+      border-bottom-style: solid;
+      border-width: 1px;
+      border-color: grey;
+      list-style: none;
+      padding: 5px 10px;
+    }
+
+    h3{
+      color: #fff;
+      font-size: 14px;      
+      
+    }
+    p {
+      color: #fff;
+      
+    }
+    a {
+      text-decoration: none;      
+    }
+  }
+  
+  #right_message{
+    width: 400px;
+    margin: 0px;
+    
+    #from, #date {
+      h3 {
+        padding: 5px 10px;
+        font-size: 18px;
+      }
+
+      @include border-radius(0px);
+      color: #fff;
+      border-bottom-style: solid;
+      border-width: 0px; 
+      border-color: grey; 
+    }
+
+    #msgcontent{
+      color: #fff;
+      font-size: 17px;     
+      padding: 5px 10px;      
+    }
+
+    #notice{
+      color: #fff;
+      text-align: center;
+      font-size: 17px;
+    }
+   
+  }
+}
+
+div.selectable{
+  
+  .ui-selected { 
+    background: #F39814; 
+    color: white; 
+  }
+  
+  ol li{
+    margin: 3px;
+    padding: 2px;
+    float: left;
+    width: 100px;
+    height: 80px;
+    text-align:center;
+    @include border-radius(6px);
+    vertical-align:text-middle;
+  }
+  
+  #dialog-form {
+    textarea {
+      height: 120px;
+    }
+  }
+  
+}
+
+#compose{
+  input, textarea{
+    width: 400px;
+  }
+}
+
+form.pretty{
+  input, textarea{
+    padding: 10px;
+    border: solid 1px #E5E5E5;
+    outline: 0;
+    font: normal 13px/100% Verdana, Tahoma, sans-serif;
+    background: #ddd;
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    @include border-radius(4px);
+  }
+}
+  
+
+#container{
+  margin: 0 auto;
+  width:1170px;
+  position: relative;
+  
+  canvas{
+    border: 1px solid white;
+    @include border-radius(8px);
+    background-color: #111;
+    //position: absolute; 
+  }
+  
+  #title{
+    float:left;
+    -webkit-text-stroke: 0.5px black;
+    font-size:40px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+  }
+
+  #resources{
+    position: absolute;
+    top: 503px;
+    left: 1020px;
+    line-height: 1.1em;
+    color: #BBB;
+    background-color: rgba(0,0,0,0.3);
+    @include border-radius(8px);
+    padding: 10px;
+    width: 150px;
+    
+  }
+
+  
+
+  #chat{
+    position: absolute;
+    top: 385px;
+    left: 10px;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.3);
+    padding: 10px;
+    
+    @include border-radius(8px);
+
+    #chatBox{
+      font-family: arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.3em;
+      width: 310px;
+      height: 150px;
+      overflow: hidden;     
+      margin-bottom: 5px;
+      
+      .me {
+        color: green;
+        margin-left:-1em;
+        font-weight: bold;
+      }
+      .them {
+        color: red;
+        margin-left:-1em;
+        font-weight: bold;
+      }
+      
+      div.message {
+        margin-left:1em;
+      }
+      div.notification {
+        color: dimgray;
+        font-style: italic;
+        text-align: center;
+      }
+    }
+
+    form{
+      input{
+        width: 310px;
+        background: #222;
+        border: 1px solid #AAA;
+        height: 20px;
+        color: #BBB;
+      }
+    }          
+  }
+}
+
+
+#header{
+  height: 40px;
+  padding-bottom:0px;
+  margin-bottom: 0px;
+    
+  
+  #text{
+    float:right;
+  }
+  
+  
+  menu{
+    list-style-type: none;
+    float: right;
+    
+    li{
+      display: inline;
+      padding: 0 5px; 
+    }
+    
+       
+  }
+  
+}
+
+
+
+
+

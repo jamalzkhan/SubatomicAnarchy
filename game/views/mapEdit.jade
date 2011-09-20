@@ -1,0 +1,46 @@
+#logout_confirm(title="Logout?")
+  p 
+    span(class="ui-icon ui-icon-alert", style="float:left; margin:0 7px 20px 0;")
+    |Are you sure you want to log out ?
+
+#generate_random(title="Generate Random Map")
+  label Number of Planets:
+  input#pnum(placeholder="Number of Planets to Generate")
+  #mm
+    label Dwarf:
+    p
+      input#dmin(placeholder="min")
+      input#dmax(placeholder="max")
+  #mm
+    label Terrestrial:
+    p
+      input#fmin(placeholder="min")
+      input#fmax(placeholder="max")
+  #mm
+    label Giant:
+    p
+      input#gmin(placeholder="min")
+      input#gmax(placeholder="max")
+
+#header  
+  #title Subatomic Anarchy : Map Editor
+  
+  menu
+    |Welcome #{user.getName()}
+    li 
+      a(id="export_link") Export
+    li 
+      a(id="random_link") Random
+    li 
+      a(id="logout_link") Logout
+    li
+      a(href='/about') About
+
+          
+
+h1 Map Editor
+
+#container
+  
+  canvas(id="canvas", width="1200", height="600")
+

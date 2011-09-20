@@ -1,0 +1,82 @@
+.container
+  #title
+    h1.title Messaging Centre
+  
+  #demo
+    button(type="submit") + Compose Message
+
+  #dialog-form(title="Send a message")
+      form.form(method="post", action="/sendMessage", id="messageForm") !{message_form}
+  
+  #result
+
+  #messages
+    | Inbox:
+    ul
+      - for(var l in messages)
+        li
+          h3= "From: " + messages[l].sender 
+          h3= "On: " + messages[l].date
+        
+          p= messages[l].content
+        
+  #sent_messages
+    | Sent Messages:
+    ul
+      - for(var l in sent_messages)
+        li
+          h3= "To: " + sent_messages[l].receiver 
+          h3= "Date Sent: " + sent_messages[l].date
+          p= sent_messages[l].content
+  
+
+  //Script for when the compose message button is clicked
+  script
+    $(function() {
+      $( "button, input:submit, a", "#demo" ).button().click(function() {
+        $( "#dialog-form" ).dialog( "open" );
+      });    
+    });
+
+
+  script
+    $(function() {
+      $( "#compose:ui-dialog" ).dialog( "destroy" );
+
+      var id = $( "#to" ),
+        message = $( "#message" ),
+        allFields = $( [] ).add( id ).add( message ),
+        tips = $( ".validateTips" );
+
+      function updateTips( t ) {
+        tips
+          .text( t )
+          .addClass( "ui-state-highlight" );
+        setTimeout(function() {
+          tips.removeClass( "ui-state-highlight", 1500 );
+        }, 500 );
+      }
+      
+
+      $( "#dialog-form" ).dialog({
+      
+        autoOpen: false,
+        height: 400,
+        width: 500,
+        modal: true,
+        buttons: {
+          "Send message": function() {
+            var bValid = true;
+            allFields.removeClass( "ui-state-error" );
+            $.post("/sendMessage", $("#messageForm").serialize(), function(data){
+              $("#dialog-form").dialog("close");
+            });
+          
+          }
+        },
+        close: function() {
+          allFields.val( "" ).removeClass( "ui-state-error" );
+        }
+      });
+    });
+

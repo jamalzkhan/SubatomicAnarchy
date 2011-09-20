@@ -1,0 +1,136 @@
+#logout_confirm(title="Logout?")
+  p 
+    span(class="ui-icon ui-icon-alert", style="float:left; margin:0 7px 20px 0;")
+    |Are you sure you want to log out ?
+
+#profile.selectable(title="Profile")
+  h1 Welcome #{user.getName()}
+  br
+  h2 Ships
+  ol(id="ship_choose")
+
+
+#shop(title="Shop")
+  ol#shopping_selectable
+    li(class="ui-widget-content") 
+      p#capacity Capacity upgrade (+500)
+        span placeholder gold
+    li(class="ui-widget-content")
+      p#brandy Brandy 
+        span placeholder gold
+  #response
+      
+
+#messages(title="Messages")
+  
+  #left_inbox.box
+    ul#left_inbox_list
+  
+  #right_message.box
+    #message
+      #from
+        
+      #date 
+        
+      #msgcontent
+      
+      #notice
+      
+
+#compose(title="Send a message")
+  form.pretty(method="post", action="/sendMessage", id="messageForm")
+    p 
+      input(name="to", placeholder="Recipient", id="to", required)
+    p
+      textarea(name="message", placeholder="Message", rows="10",required)
+  #result
+  
+
+#trade.selectable(title="Trading Arena")
+  #left_images.box
+    #top_planet
+      h2(id="planet_name") PlanetName
+      p(id="planet_subtitle") Dwarf Agricultural Planet
+      img(src="images/planets/planet1.png")
+      
+      #res_box
+        ul
+      
+    #bottom_ship
+      h3(id="ship_name") Your Ship
+  
+  #middle_trade.box
+    #top_buy.selectable
+      h3 What do you want to buy ?
+      #buy_wrap
+        ol(id="buy_choose")
+          li(class="ui-state-default") 
+            p Gold
+          li(class="ui-state-default") 
+            p Deuterium
+          li(class="ui-state-default") 
+            p Food
+    
+    #bottom_sell.selectable
+      h3 What do you want to sell ?
+      #sell_wrap
+        ol(id="sell_choose")
+          li(class="ui-state-default") 
+            p Gold
+          li(class="ui-state-default") 
+            p Deuterium
+          li(class="ui-state-default") 
+            p Food
+          
+  #right_trade.box
+  
+    #sliders
+      h3 How much to buy ? 
+        span(id="buy_amount") 0 Units
+      #slider_buy
+    
+      h3 How much to sell ? 
+        span(id="sell_amount") 0 Units
+      #slider_sell
+      
+    #res
+      h3 Available Resources
+      ul
+        li Deuterium:
+        li Gold: 
+        li Food: 
+        
+    #info_box(title="Trade Aftermath")
+    
+#header  
+  a(href="http://github.com/radicality/Subatomic-Anarchy")
+    img(style="position: absolute; top: 0; left: 0; border: 0;", src="https://d3nwyuy0nl342s.cloudfront.net/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67", alt="Fork me on GitHub")
+  
+  menu
+    |Welcome #{user.getName()}
+    li
+      a#open_shop Shop
+    li
+      a#messages_link Inbox 
+    li 
+      a#profile_link Profile
+    li 
+      a#logout_link Logout
+
+          
+
+
+#container
+  #title Subatomic Anarchy
+
+  canvas(id="canvas", width="1200", height="600")
+
+    
+  #resources
+    ul
+
+  #chat
+    #chatBox
+            
+    form(id="chatForm")
+      input(type="text", id="chatInput", autocomplete="off")    

@@ -1,0 +1,13 @@
+psd/
+.sass-cache/
+.project
+.monitor
+node_modules
+.DS_Store
+*\.css
+*.aux
+*.log
+*.pdf
+*.gz
+*.out
+*.toc

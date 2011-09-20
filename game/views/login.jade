@@ -1,0 +1,31 @@
+.container
+  #title
+    h1.title Subatomic Anarchy
+
+  #errors.prepend-8
+    - if (flash.error)
+      ul
+        - for(var e in flash.error)
+          li= flash.error[e]
+        
+  #login_form.prepend-8  
+    form.form(method="post", action="/login", id="loginForm")
+      !{login_form}
+      button(type="submit", class="slick-black") Login
+    
+    h3#register 
+      |Don't have an account? 
+      a(href='#', id="register_button") Register 
+  
+  #register_form.prepend-8
+    form.form(method="post", action="/register", id="registerForm")
+      !{register_form}
+      button(type="submit", class="slick-black") Register
+    
+    h3#register 
+      |Already have an account ?
+      a(href='#', id="login_button") Login
+
+  #success.prepend-8
+
+  script(src="scripts/loginregister_jquery.js")
